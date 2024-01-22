@@ -21,27 +21,26 @@ text {
 }
 
 #chart {
-  position: relative;
-  width: 90%; /* Adjust the width as needed */
-  max-width: 500px; /* Set a maximum width for larger screens */
-  height: auto; /* Adjust the height as needed */
-  margin: 0 auto; /* Center the chart horizontally */
-  top: 5%; /* Adjust the top margin as needed */
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #question {
-  position: relative;
-  width: 90%; /* Adjust the width as needed */
-  max-width: 400px; /* Set a maximum width for larger screens */
-  height: auto; /* Adjust the height as needed */
-  margin: 0 auto; /* Center the question div horizontally */
+  position: absolute;
+  width: 400px;
+  height: 500px;
   top: 50%;
+  left: calc(50% + 520px);
   transform: translate(-50%, -50%);
   color: #5d4037;
 }
 
 #question h1 {
-  font-size: 4vw; /* Use viewport width units for font size */
+  font-size: 50px;
   font-weight: bold;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif,
     "Twemoji Country Flags";
@@ -49,16 +48,6 @@ text {
   padding: 0;
   margin: 0;
   top: 50%;
+  -webkit-transform: translate(0, -50%);
   transform: translate(0, -50%);
-}
-
-/* Media queries for smaller screens */
-@media screen and (max-width: 600px) {
-  #title {
-    font-size: 32px;
-  }
-
-  #question h1 {
-    font-size: 6vw;
-  }
 }
