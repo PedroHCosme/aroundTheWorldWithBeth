@@ -1,6 +1,3 @@
-/**
- * Defines the padding to apply around the visualization, with top, right, bottom and left properties.
- */
 var padding = { top: 20, right: 40, bottom: 0, left: 0 },
   w = 500 - padding.left - padding.right,
   h = 500 - padding.top - padding.bottom,
@@ -400,25 +397,18 @@ var countryFlags = {
   Zimbábue: "🇿🇼",
 };
 
-d3.json("http://localhost:8080/countries.json", function(error, allCountries) {
-  if (error) {
-    console.error("Error loading countries.json:", error);
-    return;
-  }
-  console.log("Loaded countries.json:", allCountries);
+var sliceSize = 75;
+var randomIndex = Math.floor(Math.random() * (allCountries.length - sliceSize));
+var countries = allCountries.slice(randomIndex, randomIndex + sliceSize);
 
-  // Your existing code here
-  var sliceSize = 75;
-  var randomIndex = Math.floor(Math.random() * (allCountries.length - sliceSize));
-  var countries = allCountries.slice(randomIndex, randomIndex + sliceSize);
+var data = countries.map(function (country, index) {
+  return {
+    label: country,
+    value: index + 1,
+    question: "País sorteado",
+  };
+});
 
-  var data = countries.map(function (country, index) {
-    return {
-      label: country,
-      value: index + 1,
-      question: "País sorteado",
-    };
-  });
 var svg = d3
   .select("#chart")
   .append("svg")
@@ -575,4 +565,3 @@ function rotTween(to) {
     return "rotate(" + i(t) + ")";
   };
 }
-});
